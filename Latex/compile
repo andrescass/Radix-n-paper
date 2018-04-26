@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cp ./latex/*.tex ./
+cp ./latex/*.cls ./
+cp ./latex/*.bst ./
+cp ./latex/*.bib ./
+pdflatex ./bare_conf.tex
+pdflatex ./bare_conf.tex
+rm *.log
+rm *.aux
+rm *.tex
+rm *.cls
+rm *.bst
+rm *.bib
+mv bare_conf.pdf ./pdf/case_2018.pdf

@@ -1,0 +1,120 @@
+% %------------------------------------------
+% \section{CSD NUMBER SYSTEM}
+%
+% As it is known, in unsigned binary systems multipliers can be decomposed in a shift-and-add
+% sequence. When a variable is multiply by a constant, the operation can be accomplished
+% by set of adders and shift operations. For instance, let a variable $x$ multiply by a constant
+% $c = 5$. Then $c$ can be represet in binary format as $101$. In such a case, $y=c.x=(101).x=x+x\ll 2$,
+% where $x\ll 2$ represents a left shifting operation in two positions or the multiplication by $2^2$:
+%
+% \begin{equation}
+% \begin{array}{rccccccccc}
+%      x      & = &         &         & x_{n-1} & \ldots & x_2 & x_1 & x_0 \\
+% 4x = x\ll 2 & = & x_{n-1} & x_{n-2} & x_{n-3} & \ldots & x_0 & 0   & 0\\
+% \end{array}
+% \end{equation}
+%
+% Obviously, the number of adders to be implemented depends on the number of nonzero digits
+% in the constant representation. A more efficient multiplier can be obtained by
+% using CSD representation.
+%
+% CSD representation is a radix-two number system where each digit belongs to the set $\{-1,0,1\}$.
+% CSD representation has two important properties. The first one, called ``M", is the number
+% of nonzero digits is minimum. The second one is that always two nonzeros bits arer no consecutive. From a
+% unsigned bynary representation $x$, the CSD representation $y$ can be obtained by the Reitwiesner
+% algorithm \cite{agregar_ref} as seen in Table \ref{table_csd}. From negative numbers, it is necessary to take the
+% CSD representation of the absolute value and then to invert each digit as follows:
+%
+% \begin{center}
+% \begin{tabular}{rcr}
+% $-1$ & $\rightarrow$ & $1$\\
+% $0$  & $\rightarrow$ & $0$\\
+% $1$  & $\rightarrow$ & $-1$\\
+% \end{tabular}
+% \end{center}
+%
+% \begin{table}[t]
+% \begin{center}
+% \caption{CSD conversion from twos complement representation.}
+% \begin{tabular}{|c|c|c||c|c|}
+% \hline
+% $x_{i+1}$ & $x_i$ & $z_i$ & $y_i$ & $z_{i+1}$\\
+% \hline
+% \hline
+% 0 & 0 & 0 & 0 & 0\\
+% 0 & 0 & 1 & 1 & 0\\
+% 0 & 1 & 0 & 1 & 0\\
+% 0 & 1 & 1 & 0 & 1\\
+% 1 & 0 & 0 & 0 & 0\\
+% 1 & 0 & 1 & 1 & 1\\
+% 1 & 1 & 0 & 1 & 1\\
+% 1 & 1 & 1 & 0 & 1\\
+% \hline
+% \end{tabular}
+% \end{center}
+% \label{table_csd}
+% \end{table}
+%
+% It is shown in \cite{agregar_ref} that the probability that a digit $d_i$ has a nonzero value is given by:
+%
+% \begin{equation}
+% P(d_i \neq 0) = \frac{1}{3} + \frac{1}{9n} \left\lbrack 1 - {\left( \frac{1}{2} \right)}^n \right\rbrack
+% \label{pnz_csd}
+% \end{equation}
+%
+% It can be seen, as the word lentgh $n$ grows, the number of nonzero digits is reduced to $n/3$ on
+% average, implying the reduction in the number of adders/subtractors to be implemented.
+
+
+
+% \section{THE TRANSPOSED STRUCTURE}
+%
+% Figure \ref{fig_7} shows the typical block diagram of a FIR filter. When this structure is direclty translated into
+% hardware, the critical path is the sum of the delay throguh the $h_0$ multiplier and $L-1$ adders delays, being $L$ the
+% number of filter coefficients. An estimated delay is given by
+%
+% \begin{equation}
+% T_d = T_M + (L-1)T_A
+% \end{equation}
+%
+% where $T_M$ is the delay of $h_0$ multiplier and $T_A$ is delay of an individual adder.
+%
+% \begin{figure}[t]
+% \begin{minipage}[b]{1.0\linewidth}\centering
+% \scalebox{0.23}{\includegraphics[angle = 0]{./figures/figure_7.pdf}}
+% \end{minipage}
+% \caption{Five taps FIR filter direct form.}
+% \label{fig_7}
+% \end{figure}
+%
+% \begin{figure}[t]
+% \begin{minipage}[b]{1.0\linewidth}\centering
+% \scalebox{0.23}{\includegraphics[angle = 0]{./figures/figure_8.pdf}}
+% \end{minipage}
+% \caption{Five taps FIR filter transposed form.}
+% \label{fig_8}
+% \end{figure}
+%
+% The direct form structure is converted to the transposed structure as shown in Fig. \ref{fig_8}. In this case, the
+% critical estimated path delay is given by
+%
+% \begin{equation}
+% T_d = T_M + T_A
+% \end{equation}
+%
+% Since $T_M$ represents de delay of a single multiplier, it can be estimated by considering the number of adder that
+% implements the adder. In the case of using twos complement representation, we konw that the nonzero digits are the 50%
+% in average, so that if $B$ is the bit length of each filter coefficient, $T_M$ will be roughly estimated by
+%
+% \begin{equation}
+% T_M = \frac{B}{2} T_A
+% \end{equation}
+%
+% In such a case
+%
+% \begin{equation}
+% T_d = \frac{B+1}{2} T_A
+% \end{equation}
+%
+% The same procedure can be used for estimating the delay when CSD representation is used. In this case, Eq. (\ref{pnz_csd})
+% determines the number of nonzeros digits in the filter coefficients.
