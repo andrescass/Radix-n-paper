@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.6-1.40.14 (TeX Live 2014/dev) (format=pdflatex 2016.3.21)  26 APR 2018 19:03
+This is pdfTeX, Version 3.1415926-2.6-1.40.14 (TeX Live 2014/dev) (format=pdflatex 2016.3.21)  26 APR 2018 21:23
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -279,9 +279,34 @@ Missing character: There is no ï in font ptmr7t!
 Missing character: There is no ¿ in font ptmr7t!
 Missing character: There is no ½ in font ptmr7t!
 
+Underfull \hbox (badness 10000) in paragraph at lines 471--477
+[][]\OT1/ptm/m/n/10 The con-tin-u-ous grow-ing de-mand for speed in
+ []
 
-LaTeX Warning: File `./figures/ofdm_subcarriers.png' not found on input line 55
-3.
+
+Underfull \hbox (badness 2269) in paragraph at lines 471--477
+\OT1/ptm/m/n/10 tele-co-mu-ni-ca-tions leads to the im-ple-men-ta-tion of faste
+r
+ []
+
+
+Underfull \hbox (badness 3803) in paragraph at lines 471--477
+\OT1/ptm/m/n/10 The main dif-fer-ence be-tween the tra-di-tional fre-cuency
+ []
+
+
+Underfull \hbox (badness 1360) in paragraph at lines 471--477
+\OT1/ptm/m/n/10 mul-ti-plex-ing sys-tems and OFDM is that in in the last
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 471--477
+
+ []
+
+
+LaTeX Warning: File `./figures/ofdm_subcarriers.png' not found on input line 48
+0.
 
 
 ! Package pdftex.def Error: File `./figures/ofdm_subcarriers.png' not found.
@@ -290,52 +315,28 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.553 ...gle = 0]{./figures/ofdm_subcarriers.png}}
+l.480 ...gle = 0]{./figures/ofdm_subcarriers.png}}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 553.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 480.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 1472) in paragraph at lines 559--562
-\OT1/ptm/m/n/10 im-posi-ble to be im-ple-mented with ded-i-cated mod-u-la-tors
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 559--562
-
- []
-
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 566.
+(Font)              <7> on input line 489.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 566.
+(Font)              <5> on input line 489.
 
-Underfull \hbox (badness 2865) in paragraph at lines 575--580
-\OT1/ptm/m/n/10 by the com-pu-ta-tion of a IDFT and the de-mod-u-la-tors
+Underfull \hbox (badness 3701) in paragraph at lines 498--503
+\OT1/ptm/m/n/10 an OFDM mod-u-la-tor/demodulator us-ing a math-e-mathic
  []
 
 
-Underfull \hbox (badness 1584) in paragraph at lines 575--580
-\OT1/ptm/m/n/10 to im-ple-ment an OFDM mod-u-la-tor/demodulator us-ing a
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 575--580
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 586--593
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 616--617
+Underfull \hbox (badness 10000) in paragraph at lines 498--503
 
  []
 
@@ -343,20 +344,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 616--617
 
 
 ]
-Underfull \hbox (badness 2626) in paragraph at lines 654--657
-[][]\OT1/ptm/m/n/10 The in-ner sum-ma-tion in (8[]) is a $\OML/cmm/m/it/10 N[]$
+Underfull \hbox (badness 2626) in paragraph at lines 559--562
+[][]\OT1/ptm/m/n/10 The in-ner sum-ma-tion in (6[]) is a $\OML/cmm/m/it/10 N[]$
  \OT1/ptm/m/n/10 points DFT
  []
 
 
-Underfull \hbox (badness 3713) in paragraph at lines 654--657
+Underfull \hbox (badness 3713) in paragraph at lines 559--562
 \OT1/ptm/m/n/10 mul-ti-plied by the fac-tor $\OML/cmm/m/it/10 W[]$\OT1/ptm/m/n/
 10 . Tak-ing $[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 2\OML/cmm/m/
 it/10 ; k\OT1/cmr/m/n/10 1] =
  []
 
 
-LaTeX Warning: File `./figures/r2_8.png' not found on input line 711.
+LaTeX Warning: File `./figures/r2_8.png' not found on input line 606.
 
 
 ! Package pdftex.def Error: File `./figures/r2_8.png' not found.
@@ -365,36 +366,14 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.711 ...degraphics[width=7cm]{./figures/r2_8.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[2]
-
-LaTeX Warning: File `./figures/r2sdf.png' not found on input line 737.
-
-
-! Package pdftex.def Error: File `./figures/r2sdf.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.737 ...egraphics[width=9cm]{./figures/r2sdf.png}
+l.606 ...graphics[width=6.5cm]{./figures/r2_8.png}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (3.02493pt too wide) in paragraph at lines 737--738
- [][][] 
- []
-
-
-LaTeX Warning: File `./figures/r2sBf.png' not found on input line 744.
+LaTeX Warning: File `./figures/r2sBf.png' not found on input line 628.
 
 
 ! Package pdftex.def Error: File `./figures/r2sBf.png' not found.
@@ -403,61 +382,35 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.744 ...egraphics[width=6cm]{./figures/r2sBf.png}
+l.628 ...egraphics[width=6cm]{./figures/r2sBf.png}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (15.47888pt too wide) in paragraph at lines 753--766
+Overfull \hbox (15.47888pt too wide) in paragraph at lines 637--650
  [][][] 
  []
 
-
-Underfull \hbox (badness 2951) in paragraph at lines 770--775
-[][]\OT1/ptm/m/n/10 One re-stric-tion of the im-ple-men-ta-tion is the space
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 770--775
-
- []
-
-
-Underfull \hbox (badness 5189) in paragraph at lines 778--780
+[2]
+Underfull \hbox (badness 5189) in paragraph at lines 658--660
 \OT1/ptm/m/n/10 fac-tors. Is well known that mul-ti-pli-ca-tions in dig-i-tal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 778--780
+Underfull \hbox (badness 10000) in paragraph at lines 658--660
 
  []
 
 
-Underfull \hbox (badness 1845) in paragraph at lines 790--793
+Underfull \hbox (badness 1845) in paragraph at lines 670--674
  []\OT1/ptm/m/it/10 Cordic Al-go-rithm: [][] []\OT1/ptm/m/n/10 Twid-dle fac-tor
 s have the form
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 804--806
-
- []
-
-[3]
-Underfull \hbox (badness 3428) in paragraph at lines 828--830
- []\OT1/ptm/m/it/10 Efficient Com-plex mul-ti-plier: [][] []\OT1/ptm/m/n/10 Cor
-dic al-go-rithm is
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 828--830
-
- []
-
-
-Overfull \hbox (4.0261pt too wide) detected at line 836
+Overfull \hbox (4.0261pt too wide) detected at line 691
 \OML/cmm/m/it/10 R \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 jI \OT1/cmr/m/n/10 = (\OM
 L/cmm/m/it/10 A \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 jB\OT1/cmr/m/n/10 ) \OMS/cms
 y/m/n/10 ^^C \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C \OT1/cmr/m/n/10 + \OML/cmm/m/i
@@ -468,62 +421,9 @@ it/10 C \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 B \OMS/cmsy/m/n/10 ^^C \OML/cmm/m
  \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 C\OT1/cmr/m/n/10 )
  []
 
+[3]
 
-Underfull \hbox (badness 2772) in paragraph at lines 838--840
-[][]\OT1/ptm/m/n/10 where $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C \OT1/cmr/m/n/10 
-+ \OML/cmm/m/it/10 iD\OT1/cmr/m/n/10 )$ \OT1/ptm/m/n/10 is the twid-dle fac-tor
-. A straight
- []
-
-
-Underfull \hbox (badness 5533) in paragraph at lines 838--840
-\OT1/ptm/m/n/10 im-ple-men-ta-tion would need four mul-ti-pli-ers, but pre-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 838--840
-
- []
-
-
-Underfull \hbox (badness 2486) in paragraph at lines 854--855
-[][]\OT1/ptm/m/n/10 Taking into ac-count that sev-eral FP-GAs have DSP
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 854--855
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 882--884
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 921--926
-
- []
-
-[4]
-
-LaTeX Warning: File `./figures/r2conts.png' not found on input line 932.
-
-
-! Package pdftex.def Error: File `./figures/r2conts.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.932 ...raphics[width=3cm]{./figures/r2conts.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `./figures/datapathMem.png' not found on input line 953.
+LaTeX Warning: File `./figures/datapathMem.png' not found on input line 778.
 
 
 ! Package pdftex.def Error: File `./figures/datapathMem.png' not found.
@@ -532,19 +432,19 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.953 ...ics[width=9cm]{./figures/datapathMem.png}
+l.778 ...ics[width=9cm]{./figures/datapathMem.png}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (3.02493pt too wide) in paragraph at lines 953--954
+Overfull \hbox (3.02493pt too wide) in paragraph at lines 778--779
  [][][] 
  []
 
 
-LaTeX Warning: File `./figures/r4_16.png' not found on input line 1007.
+LaTeX Warning: File `./figures/r4_16.png' not found on input line 815.
 
 
 ! Package pdftex.def Error: File `./figures/r4_16.png' not found.
@@ -553,65 +453,16 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1007 ...graphics[width=7cm]{./figures/r4_16.png}
+l.815 ...egraphics[width=6cm]{./figures/r4_16.png}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[5]
+[4]
 
-LaTeX Warning: File `./figures/tripleRAMdir.png' not found on input line 1040.
-
-
-! Package pdftex.def Error: File `./figures/tripleRAMdir.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1040 ...s[width=4cm]{./figures/tripleRAMdir.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `./figures/firefly.png' not found on input line 1056.
-
-
-! Package pdftex.def Error: File `./figures/firefly.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1056 ...aphics[width=6cm]{./figures/firefly.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `./figures/r4conts.png' not found on input line 1078.
-
-
-! Package pdftex.def Error: File `./figures/r4conts.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1078 ...aphics[width=4cm]{./figures/r4conts.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[6]
-
-LaTeX Warning: File `./figures/datapathR4control.png' not found on input line 1
-095.
+LaTeX Warning: File `./figures/datapathR4control.png' not found on input line 8
+67.
 
 
 ! Package pdftex.def Error: File `./figures/datapathR4control.png' not found.
@@ -620,57 +471,40 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1095 ...th=7cm]{./figures/datapathR4control.png}
+l.867 ...dth=7cm]{./figures/datapathR4control.png}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1120--1122
-
- []
-
-
-Overfull \hbox (11.2228pt too wide) in paragraph at lines 1143--1151
+Overfull \hbox (11.2228pt too wide) in paragraph at lines 914--922
 [][][] 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 1151.
+(Font)              <8> on input line 922.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 1151.
+(Font)              <6> on input line 922.
 
-Overfull \hbox (11.2228pt too wide) in paragraph at lines 1156--1164
+Overfull \hbox (11.2228pt too wide) in paragraph at lines 927--935
 [][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1168--1171
+Underfull \hbox (badness 10000) in paragraph at lines 939--942
 
  []
 
-[7]
 
-LaTeX Warning: File `./figures/thd_r2_1024_12_mul.png' not found on input line 
-1185.
+Underfull \hbox (badness 10000) in paragraph at lines 945--951
 
+ []
 
-! Package pdftex.def Error: File `./figures/thd_r2_1024_12_mul.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1185 ...h=7cm]{./figures/thd_r2_1024_12_mul.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+[5]
 
 LaTeX Warning: File `./figures/thd_r2_1024_12_cor.png' not found on input line 
-1192.
+954.
 
 
 ! Package pdftex.def Error: File `./figures/thd_r2_1024_12_cor.png' not found.
@@ -679,24 +513,7 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1192 ...h=7cm]{./figures/thd_r2_1024_12_cor.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `./figures/thd_r4_1024_12_mul.png' not found on input line 
-1199.
-
-
-! Package pdftex.def Error: File `./figures/thd_r4_1024_12_mul.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1199 ...h=7cm]{./figures/thd_r4_1024_12_mul.png}
+l.954 ...th=7cm]{./figures/thd_r2_1024_12_cor.png}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
@@ -704,7 +521,7 @@ If that doesn't work, type  X <return>  to quit.
 
 
 LaTeX Warning: File `./figures/thd_r4_1024_12_cor.png' not found on input line 
-1206.
+961.
 
 
 ! Package pdftex.def Error: File `./figures/thd_r4_1024_12_cor.png' not found.
@@ -713,46 +530,19 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1206 ...h=7cm]{./figures/thd_r4_1024_12_cor.png}
+l.961 ...th=7cm]{./figures/thd_r4_1024_12_cor.png}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1213--1216
-
- []
-
-
-LaTeX Warning: File `./figures/hw_tb.png' not found on input line 1219.
-
-
-! Package pdftex.def Error: File `./figures/hw_tb.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1219 ...graphics[width=5cm]{./figures/hw_tb.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Underfull \hbox (badness 4621) in paragraph at lines 1229--1233
+Underfull \hbox (badness 4621) in paragraph at lines 975--978
 [][]\OT1/ptm/m/n/10 The main re-quire-ment for the de-sign is the low
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1229--1233
-
- []
-
-[8]
-
-LaTeX Warning: File `./figures/sizecomp1024.png' not found on input line 1236.
+LaTeX Warning: File `./figures/sizecomp1024.png' not found on input line 981.
 
 
 ! Package pdftex.def Error: File `./figures/sizecomp1024.png' not found.
@@ -761,14 +551,14 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1236 ...s[width=8cm]{./figures/sizecomp1024.png}
+l.981 ...cs[width=8cm]{./figures/sizecomp1024.png}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: File `./figures/sizecomp4096.png' not found on input line 1243.
+LaTeX Warning: File `./figures/sizecomp4096.png' not found on input line 988.
 
 
 ! Package pdftex.def Error: File `./figures/sizecomp4096.png' not found.
@@ -777,35 +567,25 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1243 ...s[width=8cm]{./figures/sizecomp4096.png}
+l.988 ...cs[width=8cm]{./figures/sizecomp4096.png}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no ³ in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no ¡ in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no ¡ in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no ¡ in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no ³ in font ptmr7t!
-
-Underfull \hbox (badness 6526) in paragraph at lines 1308--1311
+[6]
+Underfull \hbox (badness 6526) in paragraph at lines 1051--1054
 [][]\OT1/ptm/m/n/8 Cassagnes, A., Luten-berg, A., Gior-dano Za-c-chigna, F. (20
 16)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1308--1311
-\OT1/ptm/m/n/8 Rp-ida de Fourier para su apli-cacin en sis-temas OFDM''
+Underfull \hbox (badness 10000) in paragraph at lines 1051--1054
+\OT1/ptm/m/n/8 Rap-ida de Fourier para su apli-ca-cian en sis-temas OFDM''
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1308--1311
+Underfull \hbox (badness 10000) in paragraph at lines 1051--1054
 \OT1/ptm/m/n/8 http://laboratorios.fi.uba.ar/lse/tesis/LSE-FIUBA-Tesis-Grado-An
 dres-
  []
@@ -821,36 +601,38 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[9] (./bare_conf.aux) ) 
+[7
+
+] (./bare_conf.aux) ) 
 Here is how much of TeX's memory you used:
- 2985 strings out of 495034
- 44057 string characters out of 6181677
- 109927 words of memory out of 5000000
- 6137 multiletter control sequences out of 15000+600000
+ 2963 strings out of 495034
+ 43782 string characters out of 6181677
+ 108801 words of memory out of 5000000
+ 6123 multiletter control sequences out of 15000+600000
  42633 words of font info for 77 fonts, out of 8000000 for 9000
  21 hyphenation exceptions out of 8191
  38i,15n,23p,251b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.e
-nc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
-s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on bare_conf.pdf (9 pages, 223971 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc
+}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
+utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on bare_conf.pdf (7 pages, 214347 bytes).
 PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
+ 101 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -365,10 +365,10 @@
 % use a multiple column layout for up to three different
 % affiliations
 \author{
-\IEEEauthorblockN{Andrés D. Cassagnes and Federico G. Zacchigna}
+\IEEEauthorblockN{Andrés D. Cassagnes, Federico G. Zacchigna and Alpago, O.}
 \IEEEauthorblockA{Facultad de Ingenier\'i�a\\
 Universidad de Buenos Aires\\
-\{acassagnes,fzacchigna\}@fi.uba.ar}
+\{acassagnes,fzacchigna,oalpago\}@fi.uba.ar}
 \and
 \IEEEauthorblockN{Ariel Lutenberg}
 \IEEEauthorblockA{Facultad de Ingenier\'i�a\\
@@ -439,17 +439,8 @@ keeping the performance of a regular FFT core. That restriction is due to compli
 OFDM modulator, which will be the final use of the core.\\
 Radix algorithm has been selected becasue it provides high modules re-utilization, implemented over an iterative structure,
 using only one butterfly module, one multiplier and one memory. In that scheme, the main complexity is in the control unit 
-and the pipeline.\\
+and the datapath.\\
 The design was made in Verilog hardware description language and the test scripts were made in Matlab scripting language.
-% A software tool for high-level synthesis of Finite Impulse Response (FIR) filters is presented.
-% The tool is based on Canonic Signed Digit (CSD) coding for filter coefficients and Nonrecursive
-% Signed Common Subexpression Elimination algorithm (NR-SCSE) for logic operators (adders and subtractors)
-% minimization. By means of this tool a fully-synthesizable HDL code can
-% be generated which is suitable for Field Programmable Gates Arrays (FPGA) as well as for Application
-% Specific Integrated Circuits (ASIC). In this paper all the algorithms implemented are
-% described. Logic operators (LOs) are based on ripple carry structures (RCS)
-% in order to save area and simplify routing. The source code was developed in C programming
-% language and can be used under GNU General Public License (GNU-GPL).
 \end{abstract}
 
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
@@ -474,79 +465,15 @@ The design was made in Verilog hardware description language and the test script
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
-
-
-% \section{Introduction}
-% FIR filters are widely used in a variety of applications such as
-% channel equalization, matched filtering, pulse shaping, etc. The
-% main advantages of stability and linear phase make FIR filters
-% the prefered option in most of the cases. However,
-% the complexity of a FIR filter implementation lies in the number
-% of filter coefficients. In those applications where throughput
-% is the principal constraint, the bit parallel transpose architecture \cite{cite_fir_transpose}
-% is commonly chosen. In this architecture the filter input is multiplied by
-% all the coefficients at the same time. This problem is known as multiple constant
-% multiplication (MCM).
-% 
-% The basic method to multiply a variable by a constant without using a
-% multiplier is to represent the constant with some fixed point arithmetic
-% encoding and to use a \emph{shift-and-add} procedure. This problem is known as
-% single constant multiplication (SCM). A common employed coding technique
-% is Canonic Signed Digit (CSD) representation which minimizes the number of
-% nonzero bits in comparison with two's complement representation. Dempster and
-% McCleod \cite{cite_dempster_and_mccleod} developed an optimal solution based on an exhaustive
-% search algorithm for
-% word length up to 12 bits which was later extended by Gustafsson et al.
-% up to 19 bits \cite{cite_gustafsson}.
-% 
-% When MCM must be accomplished, finding shared intermediate
-% results between coefficient decompositions helps to reduce the hardware complexity.
-% It has been proved that the optimal solution to this problem is NP-Complete
-% \cite{cite_fir_np_complete} and is strongly dependant of arithmetic coding employed
-% in the coefficients representation. This fact encourages the use of heuristic techniques. There
-% are two different groups of heuristic algorithms: graph dependence (GD) based and common subexpression
-% elimination (CSE) based.
-% 
-% One of the first works describing the problem of MCM optimization based on a GD
-% was developed by Bull and Horrocks \cite{cite_bull_horrocks}. In their work, the FIR filter structure is represented
-% by a GD creating a new coefficient depending on the previous ones by using an
-% heuristic method. Dempster and McCleod proposed to use their optimal solution to the SCM problem
-% to each filter coefficient and to use what they called n-dimensional reduced adder graph (RAG-n)
-% to exploit redundancy between coefficients decomposition. The algorithm was named
-% Bull-Horrocks-Modified (BHM) algorithm in subsequent works. The main disadvantage of BHM
-% algorithm is the increasing of the logic depth (LD), i.e. number of cascaded adders/subtractors.
-% Other methods that use dependence graphs are Pasko's \cite{cite_pasko_fir}, CRA \cite{cite_cra_fir},
-% HCUB \cite{cite_hcub_fir}.
-% 
-% A different approach is based on finding common subexpressions between binary representation of
-% filter coefficients. Generally, the common subexpressions extracted from filter coefficients are grouped
-% in a premultiplier block (PB) and then combined in the multiplier block (MB) to build
-% the filter coefficients as it can be seen in Fig. (\ref{fig_5}). The accumulator block (AB)
-% completes the transpose architecture. Hartley \cite{cite_hartley_fir} proposed a common subexpression
-% elimination (CSE) algorithm based on CSD representation. The main advantage of CSE based algorithms is
-% that a more regular layout can be obtained regards to those GD based.
-% In order to increase the common subexpression found given a coefficient set, different alternatives have been developed.
-% Park and Kang \cite{cite_park_kang_fir} proposed to use minimal signed digit representation (MSD) instead of CSD. Given a constant,
-% MSD produces a number of representations with the same number of nonzero digits as CSD but increases
-% the common subexpression searching set.
-% Mart\'inez-Peir\'o et. al \cite{cite_nr_scse_fir} suggested the NR-SCSE algorithm allowing a structure that
-% can be easily synthesized into hardware with the objective of improving routability and reduce LD.
-% In NR-SCSE, vertical subexpressions neither super subexpressions are considered allowing to reduce LD and
-% increase the operation frequency.
-% 
-% Our election for an adequate FIR filter minimization algorithm to be implemented in a software tool was having in
-% mind routability, LD and low programming effort. Because of these concerns, FIRSynth implements the NR-SCSE algorithm.
-
 %------------------------------------------
 \section{Introduction}
 
 The continuous growing demand for speed in telecomunications leads to the implementation of faster transmision systems.\\
-One of the most used data transmision systems is Orthogonal Frecuency Division Multiplexing, \textit{OFDM}, which uses multiple carriers 
+One of the most used data transmision systems is Orthogonal Frecuency Division Multiplexing, \textit{OFDM} \cite{Prasad2_1}, which uses multiple carriers 
 to modulate the transmited data.\\
-The main difference between the traditional frecuency multiplexing systems and the orthogonal frecuency multiplexing systems is 
-that in OFDM modulations the carriers are overlapped, taking advantage of their orthogonality as seen in Fig. (\ref{ofdm_carriers}), in oposition to the traditional 
-system where the carriers have a gap between them to prevent inter-carrier interference.\\
-OFDM is used widely in nowadays communications, being one of the most extended \cite{Prasad2_1}.
+The main difference between the traditional frecuency multiplexing systems and OFDM is 
+that in in the last one the carriers are overlapping, taking advantage of their orthogonality as seen in Fig. (\ref{ofdm_carriers}), 
+in oposition to the traditional system where the carriers have a gap between them to prevent inter-carrier interference.\\
 
 \begin{figure}[htb!]
 \begin{minipage}[b]{1.0\linewidth}\centering
@@ -555,10 +482,6 @@ OFDM is used widely in nowadays communications, being one of the most extended \
 \caption{OFDM sub-carriers scheme}
 \label{ofdm_carriers}
 \end{figure}
-
-The high number of sub-carriers needed to perform a communication at the speeds required nowadays, makes it imposible to be implemented
-with dedicated modulators and demodulators for each sub-carrier. The most optimal implementation for the OFDM modulator-demodulator 
-is by using Discrete Fourier Transform.\\
 
 The basis of the OFDM transmision is the sum of sub-carriers (wich can be expressed by a complex exponential, or a \textit{frequency}
 in the complex plane) multiplied by the data complex symbols. Matematically, it is expressed as seen in equation (\ref{eq:OFDM_symbol_low})
@@ -574,22 +497,20 @@ s_{k}(t-kT) =
 
 where \textit{k} is the sub-carrier number. It's easy to recognize in this equation the form of an Inverse Discrete Fourier Transform 
 (where the points in the frequency domain are translated to the time domain).\\
-Using this, the OFDM modulators bank can be replaced by the computation of a IDFT and the demodulators bank by the computation of a
+Using this, the OFDM modulator bank can be replaced by the computation of a IDFT and the demodulator bank by the computation of a
 DFT, making it possible to implement an OFDM modulator/demodulator using a mathemathic computing core. It's even possible to make the 
 implementation more optimal by the use of efficient IDFT/DFT algorithms known as Fast Fourier Transform.\\
 
 The objetive of this work is to obtain an FFT computing core, small enough to be included in a complete OFDM transeiver without consuming 
-to much resources or space, but efficient enough to be usefull in an ISDB-t television system.
+to much resources or space, but efficient and accurate enough to be usefull in an ISDB-t television system.
 
 \section{Architechture selection}
 
 There are several algorithms for FFT calculation. Each has some advantages and disadvantages. As we are trying to achieve the smallest
-implementation, the radix-r algorithm is selected. It has the particularity of using equal modules in every step of the transform, so
-it's the best choice in terms of the implementation efficiency \cite{Schaffer2_3}.\\
-Radix-r algorithms are a variation of Cooley-Tukey algorithms \cite{MeyerRadix}. In Cooley-Tukey algorithms the FFT calculation is reduced
-to m sub-FFTs through the factorization of the number of points, ($N$). Radix-r variations factorices $N$ in the form of $N = r^\nu$, so the $N$-point FFT 
+implementation, the radix-r algorithm is selected beacause of it's particularity of using equal modules in every step of the transform \cite{Schaffer2_3}.\\
+Radix-r algorithms are a variation of Cooley-Tukey algorithms \cite{MeyerRadix}. Radix-r factorices the FFT length, $N$, in the form of $N = r^\nu$, so the $N$-point FFT 
 is decomposed in $\nu$ r-points sub-FFTs. The main advantage of the factorization in $r$ is that the computation module can be replied or reused
-for each sub-FFT calculation.\\
+for each sub-FFT calculation.
 
 \subsection{Radix-r Algorithm}
 
@@ -614,7 +535,6 @@ k = k_1 + N_1k_2 \qquad
 \end{equation}
 
 where $n$ is the time domain index and $k$ is the frequency domain index, and $N=N1*N2$.\\
-
 Expressing the DFT and IDFT in the forms of equations (\ref{eq:DTF}) and (\ref{eq:iDTF})
 
 \begin{equation}
@@ -628,22 +548,7 @@ x[n] = \frac{1}{N}\sum_{k=0}^{N-1}X[k]W_N^{-kn}
 \end{equation}
 
 where $W_N^{kn}=e^{\frac{-j2\pi kn}{N}}$ are known as \textit{twiddle factors}, $n$ and $k$ can be replaced by (\ref{eq:CT_time_inedx})
-and (\ref{eq:CT_freq_inedx}):
-
-\begin{equation}
-W_N^{kn}=W_N^{N_2n_1k_1+N_1N_2n_1k_2+n_2k_1+N_1n_2k_2} 
-\label{eq:Wkn}
-\end{equation}
-
-As $W_N^{nk}$ has order $N=N_1N_2$ it becomes that $W_N^{N_1}=W_{N_2}$ and
-$W_N^{N_2}=W_{N_1}$, wich replaced in \ref{eq:Wkn}:
-
-\begin{equation}
-W_N^{kn}=W_{N_1}^{n_1k_1}W_N^{n_2k_1}W_{N_2}^{n_2k_2} 
-\label{eq:Wkn_red}
-\end{equation}
-
-Using (\ref{eq:Wkn_red}) in (\ref{eq:DTF}), results in:
+and (\ref{eq:CT_freq_inedx}), wich in (\ref{eq:DTF}) results in:
 
 \begin{equation}
 X[k1,k2]=\sum_{n_2=0}^{N_2-1}
@@ -661,24 +566,16 @@ W_{N_2}^{n_2k_2}\tilde{x}[n2,k1]
 \label{eq:DFT_tilde}
 \end{equation}
 
-(\ref{eq:DFT_tilde}) shows the $N_2$ points $\tilde{x}$ DFT, which represents the main advantage of this algorithm, 
-for any factorization of $N$ in the form of $N=N_1N_2$, the $N$ point DFT of $x(n)$ can be calculated following the steps:
-
-\begin{itemize}
-  \item Map the input index using (\ref{eq:CT_time_inedx})
-  \item Calculate $N_1$ points DFT of $x(n)$.
-  \item Multiplie the resulting points by the twiddle factors.
-  \item Calculate $N_2$ point DFT of the resulting secuence.
-  \item Map the output index using (\ref{eq:CT_freq_inedx})
-\end{itemize}
+(\ref{eq:DFT_tilde}) shows the $N_2$ points $\tilde{x}$ DFT. It demostrates the power of the algorithm by replacing an $N$ point DFT
+with two smaller sequential DFT. 
 
 Here we can subdivide the sub-DFTs applying the described method in turn to reduce the original DFT to 
 several sub-DFTs of smaller length and simpler to operate.
 
 An extra advantage of this algorithm is the posibility of in-place memory using, where the results of an operation
-is holded in the memory position of the operands, so for a $N$ point DFT needs a $N$ length memory.
+is holded in the memory position of the operands, so for a $N$ point DFT, $N$ length memory is needed.
 
-Radix-r is a variation of this algorithm where $N=r^\nu$. The value of $r$ affects the type of operations needed by the algorithm, as can
+The value of $r$ affects the type and quantity of operations needed, as can
 be seen in table \ref{table:fft_oper}.
 
 \begin{table}[h]
@@ -689,55 +586,42 @@ $2$ & $2$ & $0$ & $2$ \\
 $3$ & $3$ & $2$ & $6$ \\
 $4$ & $4$ & $0$ & $8$ \\
 $5$ & $6$ & $5$ & $17$ \\
-$7$ & $9$ & $8$ & $36$ \\
-$8$ & $8$ & $2$ & $26$ \\
-$9$ & $11$ & $10$ & $44$ \\ \hline
+$7$ & $9$ & $8$ & $36$ \\ \hline
 \end{tabular}
-\caption{Complex operations quantity for different values of \textit{r}}
+\caption{Operations needed by different values of \textit{r}}
 \label{table:fft_oper}
 \end{table}
  
-For $r=2$ and $r=4$ there aren't any non trivial multiplications, so this are the values chosen for $r$.\\
+For $r=2$ and $r=4$ there aren't non trivial multiplications, so this are the values chosen for $r$.\\
 A radix-r FFT has $log_rN$ stages. As table \ref{table:fft_oper} shows, for $r=4$ more operations per stage are needed but there are
-half the stages. Both are implemented in order to make a comparition between them and provide the posibility to choose
-depending on the requirements of the implementation.
+half the stages than for $r=2$. Both are implemented in order to compare them and bring the posibility to choose
+depending on the requirements of the specific application.
 
 \subsection{Implementation of the Radix-r architechture}
 
-Figure \ref{fig:r2_8} shows the simplified scheme of an $8$ points radix-2 FFT.
+Figure \ref{fig:r2_8} shows the simplified scheme for $8$ points radix-2 FFT.
 
 \begin{figure}[htb!]
         \centering
-        \includegraphics[width=7cm]{./figures/r2_8.png}
+        \includegraphics[width=6.5cm]{./figures/r2_8.png}
         \caption{8 points Radix-2 FFT}
         \label{fig:r2_8}
 \end{figure}
 
-Each node represents an addition and the arrows represents the multiplication by the value over the arrow. 
-The figure shows the stage division of the algorithm, each one performs a $2$ points DFT. Each $2$ points DFT 
-is known as a Butterfly. For a radix-4 DFT, the scheme is similar but every node is a four points addition.\\
+Each node represents an addition and the arrows represents the multiplication by the value over it. 
+The figure shows the stage division of the algorithm, each of them performing a $2$ points DFT.\\
 In general, for a $N$ points DFT $\frac{N}{2}*\log_2(N)$ butterflies and $\frac{N}{2}*(\log_2(N)-1)$ complex multipliers
-are needed. But there are alternative implementations for the radix algorithms wich provides optimizations in 
-butterflies and multipliers quantity, memory length, throughput (related with the transmition speed) and control-unit
-complexity.\\
-The most-common implementations are:
+are needed. There are different implementations for the radix algorithms wich provides optimizations in 
+different aspects of the performance.\\
+Possible implementations are:
 
 \begin{itemize}
   \item \textbf{Parallel} All \textit{butterfly} and multipliers are implemented in similar scheme as 
-  the one showed in \ref{fig:r2_8}.
-  \item \textbf{Unrolled} Single Delay Feedback (SDF) architechture \cite{torkelson}. 
-  Figure \ref{fig:r2sdf} shows a $4$ point radix-2 SDF FFT scheme.
-  It uses a \textit{butterfly} and a complex multiplier per stage.
-  \item \textbf{Iterative} It implements only one \textit{butterfly} and one complex multiplier, wich performs secuencially
-  the operation for every stages. Figura \ref{fig:r2sBf} shows a $8$ points iterative radix-2 FFT scheme. 
+  the one showed in Figure (\ref{fig:r2_8}).
+  \item \textbf{Unrolled} Single Delay Feedback (SDF) architechture \cite{torkelson}. Uses a \textit{butterfly} and a complex multiplier per stage.
+  \item \textbf{Iterative} Only one \textit{butterfly} and one complex multiplier, used secuencially
+  by all the stages. Figure (\ref{fig:r2sBf}) shows an $8$ points iterative radix-2 FFT scheme. 
 \end{itemize}
-
-\begin{figure}[htb!]
-        \centering
-        \includegraphics[width=9cm]{./figures/r2sdf.png}
-        \caption{Unrolled SDF Radix-2}
-        \label{fig:r2sdf}
-\end{figure}
 
 \begin{figure}[htb!]
         \centering
@@ -767,15 +651,11 @@ cicles\\
 \label{table:radixcomp}
 \end{table}
 
-One restriction of the implementation is the space efficiency, so the iterative implementation is selected, because it only needs
-one butterfly and one multiplier independently of FFT length. In terms of space, the relation between the iterative vs the unrolled 
-efficiency is $log_r(N):1$ Only the memory size depends on FFT length, but it is equal to the 
-unrolled implementation, so there no advantages. This ensures the low space and low energy needed by the core.\\
-Even though it represents low throughput, it is easily solved by feeding the core clock with the correct frequency.\\
+In order to ensure the low space and low resource requirement, iterative implementation has been chosen.
 
 \subsection{Twiddle factors multiplication}
 
-Radix algorithms require the multiplication by twiddle factors. Is well known that multiplications in digital implementation are worthy, 
+Radix algorithms require the multiplication by twiddle factors. Is well known that multiplications in digital implementation are expensive, 
 spacial and temporaly. So to choose the better alternative needs a carefully analisys.\\
 
 Three methods were analised:
@@ -787,47 +667,22 @@ Three methods were analised:
 
 \subsubsection{Cordic Algorithm}
 
-Twiddle factors have the form $W_N^{kn}=e^{\frac{-j2\pi kn}{N}}$. So in the complex axis they represent a rotation. A well known and well proved 
-algorithm for rotations is the cordic algorithm. It is based on successive aproximations by micro-rotations until the desired angle is reached.\\
-The algorithm is defined by the following rotation equations:
-
-\begin{equation}
-x_{i+1} = x_i* \cos \theta_{i+1} - y_i* \sin \theta_{i+1}
-\label{eq:micrototX}
-\end{equation}
-
-\begin{equation}
-y_{i+1} = y_i* \cos \theta_{i+1} + x_i* \sin \theta_{i+1}
-\label{eq:micrototY}
-\end{equation}
-
-The main advantage of this algorithm is that it only uses additions (and substractions) and shifts, both of them very cheap in terms \\
-of resources. Also it can be pipelined, improving the speed of processing.\\
-
-For more details of Cordic Algorith refer to \cite{Volder}.
+Twiddle factors have the form $W_N^{kn}=e^{\frac{-j2\pi kn}{N}}$. So they represent a rotation in the complex axis. A well known and well proved 
+algorithm for rotations is the cordic algorithm \cite{Volder}. It is based on successive aproximations by micro-rotations until the desired angle is reached.\\
+The main advantage of this algorithm is that it only uses additions (and substractions) and shifts, both of them very cheap in terms
+of resources. Also it can be pipelined, improving the speed of processing.
 
 \subsubsection{BKM Algorithm}
 
-This algorithm, like the cordic algorithm, try to resolve elemental equations using only additions and shifts.\\
-It is based on the following equations:
-
-\begin{equation}
-	\begin{cases}
-	L_{n+1} = L_n(1+d_n*2^{-n}) \\
-	E_{n+1} = E_n - \ln (1+d_n*2^{-n})
-	\end{cases}
-\label{eq:BKM}
-\end{equation}
-
-In comparition with Cordic Algorithm, BKM requires more storage and is more complex. In addition, it's main efficience is obtained using 
-redundant numeric system. In the case of this work, the implementation is made usign two's complement number representation, wich is not redundant.\\
-Because of this reasons, BKM is discarded for this project. For more information about BKM algorithms refer to \cite{BKM}.
+Like the cordic algorithm, it resolves elemental equations using only additions and shifts.\\
+In comparition with Cordic Algorithm, BKM requires more storage and is more complex. In addition, it's greater efficience is obtained using 
+redundant numeric system, wich is not the case of the present work. Because of this reasons, BKM is discarded for this project.\\
+For more information about BKM algorithms refer to \cite{BKM}.
 
 \subsubsection{Efficient Complex multiplier}
 
 Cordic algorithm is widely used in FFT calculation because of its very low cost in terms of space and resources. But in an iterative 
 implementation, where only one multiplier is required, the difference between the cordic core and a complex multiplier is very little.\\
-
 For twiddle factors, the multiplication required is:
 
 \begin{equation}
@@ -835,10 +690,9 @@ R+jI = (A+jB)*(C+jD) = (A*C-B*D) + j(A*D+B*C)
 \label{eq:prodcomp4}
 \end{equation}
 
-where $(C+iD)$ is the twiddle factor. A straight implementation would need four multipliers, but pre-calculating some of the factors and 
-storing them in memory (as the $tg\theta$ in cordic) can reduce the implementation to only three multiplications, in fact, a $25 \%$.\\
-
-Pre-calculated factors are $C$, $(C+D)$ and $C-D$. Then, getting into the multiplier with the twiddle factor, pre-calculated values 
+where $(C+jD)$ is the twiddle factor. A straight implementation would need four multipliers, but pre-calculating some of the factors and 
+storing them in memory (as the $tg\theta$ in cordic) can reduce the implementation to three multiplications.\\
+Pre-calculated factors are $C$, $(C+D)$ and $C-D$. Then, pre-calculated values 
 are used to obtain $Z = C x (A-B)$ and then:
 
 \begin{equation}
@@ -851,7 +705,7 @@ I = (C+D) \times A - Z
 \label{eq:prodcompI}
 \end{equation}
  
-Taking into account that several FPGAs have DSP integrated modules, the implementation of multipliers could be very efficient.\\
+Taking into account that several FPGAs have DSP integrated modules, the implementation of multipliers could be very efficient.
 
 \subsection{Summary of implementation}
 
@@ -867,8 +721,6 @@ As it has been exposed in this section, the following architechtures are impleme
 
 \section{Radix-2}
 
-As it has been explained in previous sections, an iterative implementation for the N points radix-2 algorithm uses only one butterfly 
-for the calculations fo every stage consecutevely. This ledas to waitng $log_2(N)$ cicles between two entry point and between two output points.\\
 In Figure (\ref{fig:r2_8}) are shown the different stages of radix-2 FFT implementation.\\
 On each clock cicle, one of two posible operations can be performed:
 
@@ -879,8 +731,7 @@ On each clock cicle, one of two posible operations can be performed:
 \end{itemize}
 
 %Figure (\ref{fig:radix2blocks}) provides a block diagram for radix-2 iterative implementation. There can be apreciated the main components 
-Main components of the core are: N point memory, butterfly, multiplier an dthe control unit. an input ultiplexer determines if the 
-butterfly operation will be done with the core entry point or with a point stored in memory.\\
+Main components of the core are: N point memory, butterfly, multiplier an the control unit.
 
 % \begin{figure}[htb!]
 %         \centering
@@ -891,13 +742,11 @@ butterfly operation will be done with the core entry point or with a point store
 
 \subsection{Memory}
 
-Due to the type of memory operations, simultaneous store and read data, the memory unit is implemented as a two-port RAM memory of length N. 
-In fact, there is only $N-1$ memory positions needed, but for ease a N memory is implemented, because there is always one point from a stage that is used in 
-the next stage, so it has not to be stored in memory. Memory positions have 2 word length in order to store the real and imaginary part of every point.
+Due to the type of memory operations simultaneous store and read datais needed, so the memory unit is implemented as a dual-port RAM memory of length N. 
 
 \subsection{Butterfly}
 
-The butterfly unit has to perform the two operands complex operations:
+The butterfly unit has to perform the two-operands complex operations:
 
 \begin{equation}
 \begin{split}
@@ -905,47 +754,23 @@ c &= a+b \\
 d &= a-b
 \end{split}
 \label{eq:butterf}
-\end{equation}
-
-\subsection{Datapath}
-
-The datapath must comprise both types of operations described above, and trhee different variants for eacg one: the incoming data for a given stage could
-come from the core input or from the previous stage and/or from the memory, and the resulting data could go to the core output or to the
-multiplier and/or to the memory.\\
-When a memory-store operation is performed, a cero ('0') is added or substracted to the operand so it is stored in memory through the 
-butterfly unit.\\
-This is done by a set of multiplexers controlled by the control unit.   
+\end{equation} 
 
 \subsection{Control Unit}
 
 The control unit has to set the multiplexers according to the operation that is performed in that clock cicle, address the memory to the 
-position wherer the actual operand has to be readed or stored and generate the twiddle factors for the multiplier.\\
+position where the actual operand has to be readed or stored and generate the twiddle factors for the multiplier.\\
 Given that the core has $log_2(N)$ stages, the control unit has a stage-counter with length $log_2(log_2(N))$. Another counter, with a
 length of $log_2(N)$ counts the number of points that have entered into the core by that moment. A state machine is controlled with 
-these counters. Is this state machine the one wich controlls the architechture.\\
-
-To decide if a particular stage performs an arithmetihci or a memory transfer operation, a bit of the points counter is evaluated. 
-The position of that bit is determined by the stage counter, as shown in Figure (\ref{fig:r2conts}) for an 8 point radix-2.
-
-\begin{figure}[htb!]
-        \centering
-        \includegraphics[width=3cm]{./figures/r2conts.png}
-        \caption{Point counter bit selection}
-        \label{fig:r2conts}
-\end{figure} 
-
-Memory control is doing by the reading and writing addresses and the read and write control signals. As in this case the memory is readed 
-and writed in every clock cicles, control signals are always asserted. Respecting the addressing, being the radix-2 an in-place storing
-algorithm, in every clock cicle the result of an operation is stored in the same memory position of one of its operands. So the reading 
-address and the writting address are the same, and corresponds to the points counter value.
+these counters, and controls the architecture in base of the stage and point number.
 
 \subsection{Integration}
 
-Figure (\ref{fig:datapathmem}) presents the integrated core. Control unit signal are shown as arrows to keep the graphic clear.\\
+Figure (\ref{fig:datapathmem}) presents the integrated core. Control unit signal are showed as arrows to keep the graphic clear.\\
 An additional register is placed before the multiplier because one result of a given stage is used in the following stage, so
 it must be keeped for one clock cicle. Another register is placed in the output in order to bring secuencial sinchronization 
 with the circuit connected to the core.\\
-An optional scaling unit is provided after the butterfly to give a method to deal with overflow. The scaling unit can be turned on 
+An optional rounding/clipping unit is provided after the butterfly to give a method to deal with overflow. This can be turned on 
 selectivelly for each stage in real time. 
 
 \begin{figure}[htb!]
@@ -958,8 +783,7 @@ selectivelly for each stage in real time.
 \section{Radix-4}
 
 Radix-4 algorithm divides a N-point DFT in $\nu$ 4-point DFT, so that $N = 4^\nu$.\\
-Breaking up the N-point DFT in 4 DFT of $N/4$ points each, it becomes to the next four expressions 
-wich resumes the operations the radix-4 has to process (\cite{MeyerRadix}):
+The following expressions resumes the operations that the radix-4 has to process \cite{MeyerRadix}:
 
 \begin{equation}
 y_n = (x_n + x_{n+\frac{l}{4}} + x_{n+\frac{l}{2}} + x_{n+\frac{3l}{4}})
@@ -983,112 +807,60 @@ h_n = ((x_n - x_{n+\frac{l}{2}}) +j (x_{n+\frac{l}{4}} - x_{n+\frac{3l}{4}})) W_
 \label{eq:radix4_subh}
 \end{equation}
 
-for $k = 0,1,\ldots,\frac{N}{4}-1$, where $l$ depends on the current processing stage:
-
-\begin{equation}
-\begin{split}
-l_1 &= N \\
-l_2 &= \log_4(N) \\
-l_3 &= \log_4(\log_4(N)) \ldots\\
-l_\nu &= 4
-\end{split}
-\label{eq:radix_4_arit_l}
-\end{equation}
-
-where $l_i$ corresponds to the i-ith stage of a $N=4^\nu$ point DFT.
-
-It's clear that the radix-4 algorithm must process four points in each arithmetic operation: $x_n$,
-$x_{n+\frac{l}{4}}$, $x_{n+\frac{l}{2}}$ and $x_{n+\frac{l}{4}}$.
-
-Figure (\ref{fig:r4_diag})shows the operatinal scheme of a 16-points radix-4 algorithm.
+for $k = 0,1,\ldots,\frac{N}{4}-1$, where $l$ depends on the current processing stage.
+Figure (\ref{fig:r4_diag}) shows the operatinal scheme of a 16-points radix-4 algorithm.
 
 \begin{figure}[htb!]
         \centering
-        \includegraphics[width=7cm]{./figures/r4_16.png}
+        \includegraphics[width=6cm]{./figures/r4_16.png}
         \caption{16 points Radix-4 FFT diagram}
         \label{fig:r4_diag}
 \end{figure}
 
-On each clock cicle, one of four posible operations is performed:
+On each clock cicle, one out of four posible operations is performed:
 
 \begin{itemize}
-  \item A point is stored in memory sub-block A, from the twiddle factor multiplier, while another point is sended from memory 
-  sub-block A to the multiplier or the output.
-  \item B point is stored in memory sub-block B, from the twiddle factor multiplier, while another point is sended from memory 
-  sub-block B to the multiplier or the output.
-  \item C point is stored in memory sub-block C, from the twiddle factor multiplier, while another point is sended from memory 
-  sub-block C to the multiplier or the output.
+  \item A point is stored in a memory sub-block from the core input or the twiddle factor multiplier, while another point is sent 
+  from the same memory sub-block to the multiplier or the output. For every sub-block, a different operation is considered.
   \item An arithmetic operation is performed with a point from the core input or the previous stage and 3 points from memory, each
   from a different memory sub-block. 
 \end{itemize}
 
-It can be appreciated that each arithmetic operation needs 4 operands, one will come from the core input or the previous stage and the other
-3 will come from the storage memory, so a special memory is designed for this implementation.\\
-Again, the main components are the memory, the aritmetic unit (called dragonfly), the datapath and the control unit.
+Main components are the memory, the aritmetic unit (called dragonfly), multiplier and the control unit, specially designed
+for radix-4.
 
 \subsection{Memory}
 
-As saying above, artihmetic operations needs 3 operands from memory, so a 3-way in 3-way out memory is needed. 
-In order to take advantage of the memory blocks present 
-in most FPGAs, a special memory is designed for this core, formed by 3 dual-port RAMs similar to radix-2 memories. This way, 
+Each arithmetic operation needs 4 operands, one coming from the core input or the previous stage and another
+3 coming from the storage, so a 3-way in/3-way out memory is needed. In order to take advantage of memory blocks present 
+in most FPGAs, a special memory is designed for this core. It is formed by 3 dual-port RAMs similar to radix-2 memories, so
 in each arithmetic operation, an operand of each memory sub-block can be readed and stored simultaneously.\\
 As the directions may not be succesive, because in each clock cicle a different stage operation is performed, each sub block 
-is divided in $\nu$ regions delimited by the address. Sub-block address regions are showed in Figure (\ref{fig:tripleRamdir}).
+is divided in $\nu$ regions delimited by addresses. Sub-block lenght decreases successively in the form $N/4$, $log_4(N/4)$, $Log_4(Log_4(N/4)) \ldots 1$. 
+ 
+\subsection{Dragonfly}
 
-\begin{figure}[htb!]
-        \centering
-        \includegraphics[width=4cm]{./figures/tripleRAMdir.png}
-        \caption{Memory sub-blck addressing map}
-        \label{fig:tripleRamdir}
-\end{figure} 
+The arithmetic unit performs the equations (\ref{eq:radix4_suby}) to (\ref{eq:radix4_subh}), wich are directly implemented in 
+the logic.\\
+In each stage two different types of operations can be performed: a four point arithmetic calculation or a memory data traslation.
+In the last case, a point from a memory sub-block is trasferred to the multiplier, while a point is stored in the next stage memory sub-block region.
+The dragonfly unit includes an inner datapath wich guides the data according to the operation in progress.
  
- \subsection{Dragonfly}
+\subsection{Control unit}
  
- The arithmetic unit performs the equations (\ref{eq:radix4_suby}) to (\ref{eq:radix4_subh}), wich are directly implemented in 
- the logic.\\
- In each stage two different types of operations can be performed: a four point arithmetic calculation or a memory data traslation.
- In the last case, a point from a memory sub-block is trasferred to the multiplier, while a point is stored in the next stage memory sub-block.
- The dragonfly unit includes an inner datapath wich guides the data according to the operation in progress.\\
- A block diagram of the arithmetic is presented in Figure (\ref{fig:firefly}). 
- 
- \begin{figure}[htb!]
-        \centering
-        \includegraphics[width=6cm]{./figures/firefly.png}
-        \caption{Arithmetic unit block diagram}
-        \label{fig:firefly}
-\end{figure}
- 
- \subsection{Datapath}
- 
- The datapath must comprise both types of operations (memory transfer are in fact three different operations as it can be done from and to 
- one of the three memory sub-blocks). The design schem is similar to radix-2 datapath, leaving the sub-block selection path to the
- dragonfly inner datapath. 
- 
- \subsection{Control unit}
- 
- As well as in radix-2, the control unit configures the datapath and generate the memory addresses and the twiddle factors for
- the multiplier. But in this case, a new point arrives every $log_4(N)$ clock cicles, while in radix-2 it occurs every $log_2(N)$, 
- wich determines the stage number.\\
- Also, two counters as used: a $log_2(N)$ length points counter and a $log_2(log_4(N))$ length stage counter. Determination of wich operation
- must be perform in a giiven clock cicle is done by the evaluation of pair of bits fo the point counter refered by the value of 
- the stage counter, as shown in Figure (\ref{fig:r4conts}).
- 
- \begin{figure}[htb!]
-        \centering
-        \includegraphics[width=4cm]{./figures/r4conts.png}
-        \caption{Point counter bits for operation selection}
-        \label{fig:r4conts}
-\end{figure}   
-
-Memory addressing is done mapping directly the point counter to the memory addresses. The sub-block region selecetion is done using the 
+As well as in radix-2, the control unit configures the datapath and generate the memory addresses and the twiddle factors for
+the multiplier. As in radix-2, two counters are used: a $log_2(N)$ length points counter and a $log_2(log_4(N))$ length stage counter. 
+Determining wich operation must be perform in a given clock cicle is done by evaluating the pair of the point counter's bits 
+refered by the value of the stage counter.\\   
+Memory addressing is done by mapping directly the point counter to the memory address. The sub-block region is selected with the 
 stage counter because each sub-block is subdivided in regions for each stage. The read and write control signalas are controlled according 
-to the type of operation: in memory transfer operations only the correct sub-block is enabled, in arithmetical operations all three sub-blocks
+to the type of operation: in memory transfer operations only one sub-block is enabled while in arithmetical operations all three sub-blocks
 are allowed to be readed and writed.
 
 \subsection{Integration}
 
 Figure (\ref{fig:datapathR4control}) presents the iterative radix-4 core. As in radix-2, extra registers are added after arithmetic unit and in 
-the output. A rounding/clipping unit is added to the dragonfly ti prevent overflow.  
+the output. Also the rounding/clipping unit is added to the dragonfly to prevent overflow.  
 
 \begin{figure}[htb!]
         \centering
@@ -1099,7 +871,7 @@ the output. A rounding/clipping unit is added to the dragonfly ti prevent overfl
  
 \section{Architecture Characterization}
 
-Beside of the individual tests for every composing unit, a set of tests is made over the entire architectures in order to verificate and validate the design.\\
+Beside of the individual tests for every composing unit, a set of tests is made over the entire architectures in order to verify and validate the design.\\
 For a complete description of tests and results, refer to \cite{tesis}.
 
 \subsection{Standard signals}
@@ -1117,8 +889,7 @@ All the tests were passed correctly.
 
 \subsection{Error measurement}
 
-In order to measure the architecture error, Matlab fft is taken as a benchmark because it operates with 64 bits floating point numbers,
-wich is mpre accurate than 12 or 16 bits integer numbers of the cores.\\
+In order to measure the architecture error, Matlab fft is taken as a benchmark because it operates with 64 bits floating point numbers.
 
 Two metrics are used for error measuring, $E_\infty$ and $E_2$:
 
@@ -1132,10 +903,10 @@ E_2 = \Vert\frac{X_o[n] - X_{dut}[n]}{X_o[n]}\Vert_2
 \label{eq:norma2}
 \end{equation}
  
-It's important to note that the radix architectures are non lineal, so for solving this, every test consists of $1024$ simulations with random vector inputs.
-In each simulation, the result of the core computation is compared with Matlab result and the errors are compupted. After the $1024$ simulations, 
+It's important to note that the radix architectures are non lineal, so every test consists of $1024$ simulations with random vector inputs.
+In each simulation, the result of the core computation is compared with Matlab result to obtain the error. After the $1024$ simulations, 
 error values are promediated to obtain the final error values.\\
-This is done for $12$ and $16$ bit implementation aof radix-2 and radix-4 cores. This is because $12$ bits is a standard word length in OFDM comunication systems 
+This is done for $12$ and $16$ bit implementations of radix-2 and radix-4 cores. This is because $12$ bits is a standard word length in OFDM comunication systems 
 and $16$ bits is a standard in signal processing. Also cordic and complex multiplier versions are tested, in order to comparate their performance.\\
 As an extra test bench, a widely used, 16 bit integer C++ FFT core is tested \cite{KISSFFT}.
 
@@ -1174,37 +945,21 @@ length of the factors stored in memory. For Cordic rotator, the error can be cut
 In order to measure the THD of the architectures, $16$ test are performed. One for each architecture, radix-2 or radix-4, for all flavours 
 described before: $12$ or $16$ bits, $1024$ or $4096$ points and cordic or complex multiplier for twiddle factors. Additionally, THD test is made 
 over KISFFT to get a testbench.\\
-Each test run consecutive simulations using as input a tone in every input point each time. That way, a graphic can be made with 
-the armonic response to every frequency tone. Figures (\ref{fig:r2_thd_1024_com}) to (\ref{fig:r4_thd_1024_cor}) shows some of the 
-resulting graphics.\\
-That graphics shows that the core response is similar as the KISSFFT response and also as the Matlab FFT response. So the THD 
-is perfectly acecptable.
-
-\begin{figure}[Htb!]
-        \centering
-        \includegraphics[width=7cm]{./figures/thd_r2_1024_12_mul.png}
-        \caption{R-2, complex mult., 12 bits}
-        \label{fig:r2_thd_1024_com}
-\end{figure}
+Each test run consecutive simulations that use as input a tone in every input point each time. That way, a graphic can be made with 
+the armonic response to every frequency tone. Figures (\ref{fig:r2_thd_1024_cor}) to (\ref{fig:r4_thd_1024_cor}) shows some of the 
+results.\\
 
 \begin{figure}[Htb!]
         \centering
         \includegraphics[width=7cm]{./figures/thd_r2_1024_12_cor.png}
-        \caption{R-2, Cordic, 12 bits}
+        \caption{Radix-2, Cordic, 12 bits}
         \label{fig:r2_thd_1024_cor}
 \end{figure}
 
 \begin{figure}[Htb!]
         \centering
-        \includegraphics[width=7cm]{./figures/thd_r4_1024_12_mul.png}
-        \caption{R-4, complex mult., 12 bits}
-        \label{fig:r4_thd_1024_com}
-\end{figure}
-
-\begin{figure}[Htb!]
-        \centering
         \includegraphics[width=7cm]{./figures/thd_r4_1024_12_cor.png}
-        \caption{R-4, Cordic, 12 bits}
+        \caption{Radix-4, Cordic, 12 bits}
         \label{fig:r4_thd_1024_cor}
 \end{figure}
 
@@ -1212,24 +967,14 @@ is perfectly acecptable.
 
 For hardware validation, a Xilinx XC5XVL110 Virtex-5 FPGA is used. $1024$ points, $12$ bits iterative radix-2 and radix-4 are 
 sinthesized with Xilinx ISE v13.4 and routed into the FPGA along with a testbench circuit wich provides PC connection via a UART port.\\
-Testbench circuit is showed in Figure (\ref{fig:hw_tb}).\\
-
-\begin{figure}[htb!]
-        \centering
-        \includegraphics[width=5cm]{./figures/hw_tb.png}
-        \caption{Testbench for hardware validation}
-        \label{fig:hw_tb}
-\end{figure}
-
-Standard signal tests and error test, described above, are repeated on the hardware implementation obtaining the same results, 
+Standard signal and error tests, described above, are repeated on the hardware implementation obtaining same results as simulation tests, 
 providing the succesfull on-hardware validation of the cores.
 
 \subsection{Resource ocupation}
 
-The main requirement for the design is the low space/resource ocupation.\\
-To validate the requirement accomplishment, $1024$ and $4096$ $16$ bits iterative radix-2 and iterativa radix-4 architectures are 
-sinthesized. To have a reference for comparition, a $16$ bits radix-2 sdf (unrolled) is implemented for $1024$ and $4096$ points.
-Also, as a valid testbench, Xilinx's LogiCORE FFT v7.1 \cite{fftXilinx}, is sinthesized for both point quantity.\\
+The main requirement for the design is the low space/resource ocupation. In order to validate this requirement accomplishment, $1024$ and $4096$, $16$ bits, iterative radix-2 and radix-4 architectures are 
+sinthesized. To have a comparative reference, a $16$ bits radix-2 sdf is implemented for $1024$ and $4096$ points.
+Also, as a rigorous testbench, Xilinx's LogiCORE FFT v7.1 \cite{fftXilinx} is sinthesized.
 
 \begin{figure}[htb!]
         \centering
@@ -1247,19 +992,17 @@ Also, as a valid testbench, Xilinx's LogiCORE FFT v7.1 \cite{fftXilinx}, is sint
 
 Figures (\ref{fig:sizecomp1024}) and (\ref{fig:sizecomp4096}) clearly shows that the designed cores are really small compared 
 with another implementations, inclulding a propietary, device-optimized one like the LogiCORE FFT. Another important fact is that 
-radix-4 and radix-2 needs aproximated the same resources, but radix-4 has double the throughput than radix-2 (one point every 
-$log_4N$ vs one point every $log_2N$).  
+radix-4 and radix-2 needs approximately the same resource quantity, but radix-4 has double the throughput than radix-2.  
 
 \section{Conclusion}
 This paper presented two iterative radix-r FFT computing cores, designed for OFDM
-comunication systems. Their main advantage is the extremly low space/resource comsuption, wich made the suitable for
+comunication systems. Their main advantage is the extremly low space/resource comsuption, wich made them suitable for
 integration in large systems without impacting in the resource distribution, in case of FPGA implementation, or space in case of
 ASIC implementation. A complete description of the design and the verification and validation process has been presented.\\ 
-A lot of effort was spent in the verification process, making a lot of simulations and tests, in order to provide a  
-usable ip core.\\
-The architectures are implemented in Verilog HDL code, comprising about 20 coding files. Also there were developed testing tools
-in form of Matlab/Octave scripting, C++ programs and Verilog testbenchs.\\
-For future work, can be considerated to add a dithering system, in order to reduce the noise generated by the architectures, and 
+A lot of effort was spent in the verification process in order to provide a useful ip core.\\
+The architectures were implemented in Verilog HDL code. Also there were developed several testing tools
+comprising Matlab, C++ programs and Verilog testbenchs.\\
+For future work, it can be considerated to add a dithering system, in order to reduce the noise generated by the architectures, and 
 implement a pipelined cordic without modifing the global architecture timing, in order to improve the throughput. 
 
 
@@ -1305,8 +1048,8 @@ implement a pipelined cordic without modifing the global architecture timing, in
                                     reasonably efficient, mixed radix FFT library that can use either fixed or floating point data
                                     types.}
 \bibitem{fftXilinx}                 LogiCORE IP Fast Fourier Transform v7.1. (2011) Xilinx
-\bibitem{tesis}                     Cassagnes, A., Lutenberg, A., Giordano Zacchigna, F. (2016) ``Implementación y análisis de algoritmos
-                                    de cálculo de Transformada Rápida de Fourier para su aplicación en sistemas OFDM'' 
+\bibitem{tesis}                     Cassagnes, A., Lutenberg, A., Giordano Zacchigna, F. (2016) ``Implementacion y analisis de algoritmos
+                                    de calculo de Transformada Rapida de Fourier para su aplicacian en sistemas OFDM'' 
                                     http://laboratorios.fi.uba.ar/lse/tesis/LSE-FIUBA-Tesis-Grado-Andres-Cassagnes-2016.pdf
 \end{thebibliography}
 
