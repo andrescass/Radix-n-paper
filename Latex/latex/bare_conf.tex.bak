@@ -365,38 +365,17 @@
 % use a multiple column layout for up to three different
 % affiliations
 \author{
-\IEEEauthorblockN{XXXXXX XXXXXXXXX, XXXXXXXX X. XXXXXXXXX\\ and XXXXXXX XXXXXX}
-\IEEEauthorblockA{XXXXXXXXXXX XX XXXXXX XXXXX,\\
-XXXXXXXX XX XXXXXXXXXX,\\
-XXXXXXXXXXX XX XXXXXXXX XXXXXXXXX,\\
-XXXXXX XXXXX, XXXXXXXXX\\
-\{XXXXXXXXXX,XXXXXXXXXX,XXXXXXX\}@XX.XXX.XX}
+\IEEEauthorblockN{Andr\'es D. Cassagnes, Federico G. Zacchigna and Octavio Alpago}
+\IEEEauthorblockA{Facultad de Ingenier\'i�a\\
+Universidad de Buenos Aires\\
+\{acassagnes,fzacchigna,oalpago\}@fi.uba.ar}
 \and
-\IEEEauthorblockN{XXXXX XXXXXXXXX}
-\IEEEauthorblockA{XXXXXXXXXXX XX XXXXXX XXXXX,\\
-XXXXXXXX XX XXXXXXXXXX,\\
-XXXXXXXXXXX XX XXXXXXXX XXXXXXXXX\\
-XXX XXXXXXXXXXXXXXX,\\
-XXXXXX XXXXX, XXXXXXXXX\\
-XXX@XX.XXX.XX}
+\IEEEauthorblockN{Ariel Lutenberg}
+\IEEEauthorblockA{Facultad de Ingenier\'i�a\\
+Universidad de Buenos Aires\\
+and CONICET\\
+lse@fi.uba.ar}
 }
-
-% \author{
-% \IEEEauthorblockN{Andr\'es D. Cassagnes, Federico G. Zacchigna and Octavio Alpago}
-% \IEEEauthorblockA{Universidad de Buenos Aires,\\
-% Facultad de Ingenier\'i�a,\\
-% Laboratorio de Sistemas Embebidos,\\
-% Buenos Aires, Argentina\\
-% \{acassagnes,fzacchigna,oalpago\}@fi.uba.ar}
-% \and
-% \IEEEauthorblockN{Ariel Lutenberg}
-% \IEEEauthorblockA{Universidad de Buenos Aires,\\
-% Facultad de Ingenier\'i�a,\\
-% Laboratorio de Sistemas Embebidos\\
-% and CONICET-GICSAFe,\\
-% Buenos Aires, Argentina\\
-% lse@fi.uba.ar}
-% }
 
 
 % \author{\IEEEauthorblockN{Michael Shell}
@@ -453,15 +432,15 @@ XXX@XX.XXX.XX}
 
 \begin{abstract}
 %\boldmath
-In this work two FFT architectures to be used in a ISDB-T OFDM modulator are presented. The proposed architectures 
-are based in the Radix algorithm. In particular, a radix-2 and a radix-4 are implemented.\\
+Two FFT architectures are presented in this work. The architectures are based in the Radix algorithm. In particular,
+a radix-2 and a radix-4 are implemented to be used in a ISDB-T OFDM modulator.\\
 The main objective is to achieve a very small footprint, in terms of the resources/space demanded by the core, 
 keeping the performance of the standard FFT cores used as ISDB-T 
-OFDM modulator, which will be the final use of the core.
+OFDM modulator, which will be the final use of the core.\\
 Radix algorithm has been selected because it provides high re-utilization, implemented over an iterative structure,
 using only one design of a butterfly module, multiplier and memory. In this scheme, the main complexity is in the control unit 
 and the datapath.\\
-The FFT core is described using the Verilog hardware description language and the test scripts were written in the Matlab script language.
+The FFT core was described using the Verilog hardware description language and the test scripts were written in the Matlab script language.
 \end{abstract}
 
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
@@ -491,7 +470,7 @@ The FFT core is described using the Verilog hardware description language and th
 
 The growing demand of speed in telecommunications leads to the implementation of faster transmission systems.
 One of the most used modulation schemes in communication systems that fulfills these data bandwith demand is the  
-Orthogonal Frequency Division Multiplexing (OFDM) \cite{Prasad2_1}, which transmits the data  over multiple orthogonal carriers.
+Orthogonal Frequency Division Multiplexing (OFDM) \cite{Prasad2_1}, which transmits the data  over multiple orthogonal carriers.\\
 The main advantage of the OFDM over other multi-carrier modulations is the carrier orthogonality. This feature permits to overlap 
 the spectrum of the carriers without getting any inter-carrier interference, leading to higher carrier density and thus better spectrum
 utilization \cite{Prasad2_1}.
@@ -531,15 +510,16 @@ banks, moreover the IDFT\slash DFT might be computed by using the efficient Fast
 which reduces the complexity of the algorithm from $\mathcal{O}(n^2)$ to $\mathcal{O}(n \, log n)$
 
 The objective of this work is to obtain an FFT core, small enough to be included in a complete OFDM transceiver without consuming 
-too much resources, but efficient and accurate enough to be useful in an ISDB-T television system.
+too much resources, but efficient and accurate enough to be useful in an ISDB-t television system.
 
 \section{Architecture selection}
 
 There are several algorithms to calculate the FFT and each of them has some advantages and disadvantages. As we are trying to achieve a small
-implementation, the radix-r algorithm is selected because of its particularity to reuse the same modules for all the steps involved in the FFT calculation \cite{Schaffer2_3}.
+implementation, the radix-r algorithm is selected because of its particularity of reusing the same modules for all the steps involved in the FFT calculation \cite{Schaffer2_3}.
 Radix-r algorithms are a variation of Cooley-Tukey algorithms \cite{MeyerRadix}, which factorizes the FFT length, $N$, in the form of $N = r^\nu$, such that the $N$-point FFT 
-is decomposed in $\nu$ $r$-points sub-FFTs. This factorization reduces the complexity from $\mathcal{O}(n^2)$ to $\mathcal{O}(n \, log n)$ and leads to module reutilization as the sub-FFTs are all the same.
-These are key advantages in order to reduce the footprint of the core.\\  
+is decomposed in $\nu$ $r$-points sub-FFTs. This factorization reduces the complexity from $\mathcal{O}(n^2)$ to $\mathcal{O}(n \, log n)$ and leads to module reutilization as the sub-FFTs are all the same.\\
+These are key advantages in order to reduce the footprint of the core.\\ 
+Radix-r algorithms limits the size of the FFT to powers of $r$, but it is not a trouble given that the available lengths are suitable for the proposed use. 
 
 \subsection{Radix-r Algorithm}
 
@@ -613,16 +593,13 @@ $7$ & $9$ & $8$ & $36$ \\ \hline
 \label{table:FFT_oper}
 \end{table}
  
-For $r=2$ and $r=4$ there aren't non trivial multiplications, so this are the values chosen for $r$.
+For $r=2$ and $r=4$ there aren't non trivial multiplications, so this are the values chosen for $r$.\\
 A radix-r FFT has $log_rN$ stages and each stage has $N$ operations, giving the $\mathcal{O}(n \, log n)$ complexity. 
 As table \ref{table:FFT_oper} shows, for $r=4$ more operations per stage are needed but there are
 half the stages than for $r=2$. Then, both are implemented in order to compare them and bring the possibility to choose
-depending on the requirements of the specific application.
-
+depending on the requirements of the specific application.\\
 Another advantage of this algorithm is the possibility of in-place memory using, where the results of an operation
 is held in the memory position of the operands, so for an $N$ point DFT, an $N$ length memory is needed.
-
-Radix-r algorithms limits the size of the FFT to powers of $r$, but it is not a trouble given that the available lengths are suitable for the proposed use.
 
 \subsection{Implementation of the Radix-r architecture}
 
@@ -636,17 +613,17 @@ Fig. \ref{fig:r2_8} shows the simplified scheme for $8$ points radix-2 FFT.
 \end{figure}
 
 Each node represents an addition and the arrows represents a multiplication by the value over it. 
-Fig. \ref{fig:r2_8} shows the stage division of the algorithm, each of them performing a $2$ points DFT.
+Fig. \ref{fig:r2_8} shows the stage division of the algorithm, each of them performing a $2$ points DFT.\\
 In general, for a $N$ points DFT $\frac{N}{2} \, \log_2(N)$ butterflies and $\frac{N}{2} \, (\log_2(N)-1)$ complex multipliers
 are needed. There are different implementations for the radix algorithms which provides optimization in 
 different aspects of the performance.\\
 Possible implementations are:
 
 \begin{itemize}
-  \item Parallel: All \textit{butterfly} and multipliers are implemented in similar scheme as 
+  \item \textbf{Parallel} All \textit{butterfly} and multipliers are implemented in similar scheme as 
   the one showed in Fig. \ref{fig:r2_8}.
-  \item Unrolled: Single Delay Feedback (SDF) architecture \cite{torkelson}. Uses a \textit{butterfly} and a complex multiplier per stage.
-  \item Iterative: Only one \textit{butterfly} and one complex multiplier, used sequentially
+  \item \textbf{Unrolled} Single Delay Feedback (SDF) architecture \cite{torkelson}. Uses a \textit{butterfly} and a complex multiplier per stage.
+  \item \textbf{Iterative} Only one \textit{butterfly} and one complex multiplier, used sequentially
   by all the stages. Fig. \ref{fig:r2sBf} shows an $8$ points iterative radix-2 FFT scheme. 
 \end{itemize}
 
@@ -699,15 +676,14 @@ BKM algorithm resolves elemental equations using only additions and shifts \cite
 In comparison with Cordic Algorithm, BKM requires more storage and is more complex. In addition, its greater efficiency is obtained using 
 redundant numeric system, which is not the case of the present work. Because of this reasons, BKM is discarded for this project.\\
 
-In an iterative implementation, where only one multiplier is required, the difference between the cordic core and a complex multiplier is negligible.
-
+In an iterative implementation, where only one multiplier is required, the difference between the cordic core and a complex multiplier is negligible.\\
 For twiddle factors, the multiplication required is:
 \begin{equation}
 R+jI = (A+jB) \, (C+jD) = (A \, C-B \, D) + j(A\, D+B \, C)
 \label{eq:prodcomp4}
 \end{equation}
 where $(C+jD)$ is the twiddle factor. A straight implementation would need four multipliers, but pre-calculating some of the factors and 
-storing them in memory can reduce the implementation to three multiplications.
+storing them in memory can reduce the implementation to three multiplications.\\
 Pre-calculated factors are $C$, $(C+D)$ and $C-D$. Then, pre-calculated values 
 are used to obtain $Z = C \, (A-B)$ and then:
 \begin{equation}
@@ -774,8 +750,7 @@ where $a$ and $b$ are complex inputs and $c$ and $d$ are complex outputs.
 \subsection{Control Unit}
 
 The control unit has to set the multiplexers according to the operation that is performed in that clock cycle, address the memory to the 
-position where the actual operand is read or stored, and generate the twiddle factors for the multiplier.
-
+position where the actual operand is read or stored, and generate the twiddle factors for the multiplier.\\
 Given that the core has $log_2(N)$ stages, the control unit has a stage-counter with length $log_2(log_2(N))$. Another counter, with a
 length of $log_2(N)$ counts the number of points that have entered into the core by that moment. The control unit controls the whole core 
 operation based on the stage and point number which are indicated by these counters.
@@ -785,7 +760,7 @@ operation based on the stage and point number which are indicated by these count
 Fig. \ref{fig:datapathmem} presents the integrated core. The control unit signals are showed as arrows to keep the graphic clear.
 An additional register is placed before the multiplier because one result of a given stage is used in the following stage, so
 it must be kept for one clock cycle. Another register is placed in the output in order to bring sequential synchronization 
-with the circuit connected to the core.
+with the circuit connected to the core.\\
 
 An optional rounding/clipping unit is provided after the butterfly to give a method to deal with overflow. This can be turned on 
 selectively for each stage in real time. 
@@ -935,15 +910,14 @@ E_\infty = \max\left(\frac{ X_o[n] - X_{dut}[n]}{X_o[n]}\right)
 E_2 = \left\Vert\frac{X_o[n] - X_{dut}[n]}{X_o[n]}\right\Vert_2
 \label{eq:norma2}
 \end{equation}
-where $X_o[n]$ is the Matlab FFT output and $X_{dut}[n]$ is the design under test output.
-
+where $X_o[n]$ is the Matlab FFT output and $X_{dut}[n]$ is the design under test output.\\ 
 It is important to note that due to the quantization of the signals the architectures are non linear, so in order to obtain accurate 
 error measurements, every test consists of $1024$ simulations with random vector inputs.
 In each simulation, the result of the core computation is compared with Matlab results to obtain the error. After the $1024$ simulations, 
 error values are averaged to obtain the final error values.
 This is done for $12$ and $16$ bit implementations of radix-2 and radix-4 cores. This is because $12$ 
 and $16$ bits are very commonly used word lengths in signal processing and OFDM communication systems. 
-Also cordic and complex multiplier versions are tested, in order to compare their performance.
+Also cordic and complex multiplier versions are tested, in order to compare their performance.\\
 It is also measured the performance of a 16 bit integer C++ FFT, known as \emph{Kiss FFT} \cite{KISSFFT}.
 %As an extra test bench, a widely used, 16 bit integer C++ FFT core is tested \cite{KISSFFT}. 
 Test results are shown in table \ref{table:errorInf} and table \ref{table:error2}.
@@ -989,23 +963,22 @@ results.\\
 
 \begin{figure}[h!]
         \centering
-        \includegraphics[width=10.7cm]{./figures/thd3.png}
-        \caption{THD [dB] vs input tone frequency k for radix-2, Cordic, 12 bits.}
+        \includegraphics[width=10cm]{./figures/thd_r2_1024_12_cor.png}
+        \caption{THD [dB] vs input tone for radix-2, Cordic, 12 bits.}
         \label{fig:r2_thd_1024_cor}
 \end{figure}
 
 \begin{figure}[h!]
         \centering
-        \includegraphics[width=10.7cm]{./figures/thd4_1.png}
-        \caption{THD [dB] vs input tone frequency k for radix-4, Cordic, 16 bits.}
+        \includegraphics[width=10cm]{./figures/thd_r4_1024_12_cor.png}
+        \caption{THD [dB] vs input tone for radix-4, Cordic, 12 bits.}
         \label{fig:r4_thd_1024_cor}
 \end{figure}
 
 \subsection{Test on Hardware}
 
 For hardware validation, a Xilinx XC5XVL110 Virtex-5 FPGA is used. $1024$ points, $12$ bits iterative radix-2 and radix-4 are 
-synthesized with Xilinx ISE v13.4 and routed into the FPGA along with a testbench circuit which provides PC connection via a UART port.
-
+synthesized with Xilinx ISE v13.4 and routed into the FPGA along with a testbench circuit which provides PC connection via a UART port.\\
 Standard signal and error tests, described above, are repeated on the hardware implementation obtaining same results as simulation tests, 
 providing the successful on-hardware validation of the cores.
 
@@ -1013,22 +986,22 @@ providing the successful on-hardware validation of the cores.
 
 The main requirement for the design is the low space/resource occupation. In order to validate this requirement accomplishment, $1024$ and $4096$, $16$ bits, iterative radix-2 and radix-4 architectures are 
 synthesized. To have a comparative reference, a $16$ bits radix-2 sdf is implemented for $1024$ and $4096$ points.
-Also, as a reference testbench, Xilinx's LogiCORE FFT v7.1 \cite{FFTXilinx} is synthesized.
+Also, as a reference testbench, Xilinx's LogiCORE FFT v7.1 \cite{FFTXilinx} is synthesized.\\
 
 Fig. \ref{fig:sizecomp1024} and Fig. \ref{fig:sizecomp4096} clearly shows that the designed cores are really small compared 
 with another implementations, including a proprietary, device-optimized one like the LogiCORE FFT. Another important fact is that 
 radix-4 and radix-2 needs approximately the same resource quantity, but radix-4 has double the throughput than radix-2.
 \begin{figure}[htb!]
         \centering
-        \includegraphics[width=9cm]{./figures/sizecomp1024.png}
-        \caption{Size/resource comparison for 1024 points FFT}
+        \includegraphics[width=9cm]{./figures/sizecomp1024_1.png}
+        \caption{Size/resource comparition for 1024 points FFT}
         \label{fig:sizecomp1024}
 \end{figure}
 
 \begin{figure}[htb!]
         \centering
-        \includegraphics[width=9cm]{./figures/sizecomp4096.png}
-        \caption{Size/resource comparison for 4096 points FFT}
+        \includegraphics[width=9cm]{./figures/sizecomp4096_1.png}
+        \caption{Size/resource comparition for 4096 points FFT}
         \label{fig:sizecomp4096}
 \end{figure}  
 
@@ -1036,11 +1009,9 @@ radix-4 and radix-2 needs approximately the same resource quantity, but radix-4 
 This paper presented two iterative radix-r FFT computing cores, designed for OFDM
 communication systems. Their main advantage is the extremely low space/resource consumption, which made them suitable for
 integration in large systems without impacting in the resource distribution, in case of FPGA implementation, or space in case of
-ASIC implementation. A complete description of the design and the verification and validation process has been presented.
- 
+ASIC implementation. A complete description of the design and the verification and validation process has been presented.\\ 
 The architectures were implemented in Verilog HDL code. Also there were developed several testing tools
-comprising Matlab, C++ programs and Verilog testbenchs.
-
+comprising Matlab, C++ programs and Verilog testbenchs.\\
 For future work, it can be considered to add a dithering system, in order to reduce the noise generated by the architectures, and 
 to implement a pipelined cordic without modifying the global architecture timing, in order to improve the throughput. 
 
@@ -1088,7 +1059,7 @@ to implement a pipelined cordic without modifying the global architecture timing
                                     types.}
 \bibitem{FFTXilinx}                 LogiCORE IP Fast Fourier Transform v7.1. (2011) Xilinx
 \bibitem{tesis}                     Cassagnes, A., Lutenberg, A., Giordano Zacchigna, F. (2016) ``Implementacion y analisis de algoritmos
-                                    de calculo de Transformada Rapida de Fourier para su aplicacian en sistemas OFDM''
+                                    de calculo de Transformada Rapida de Fourier para su aplicacian en sistemas OFDM'' 
                                     http://laboratorios.fi.uba.ar/lse/tesis/LSE-FIUBA-Tesis-Grado-Andres-Cassagnes-2016.pdf
 \end{thebibliography}
 
